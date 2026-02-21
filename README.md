@@ -10,7 +10,7 @@ This project is built as a deep dive into the Foundations of Software Developmen
 * Responsiveness: Creating a dynamic UI that updates in real-time as character levels change, without relying on heavy frontend frameworks.
 
 # Stack
-Backend - Java 21 + Spring Boot - Handles REST APIs, security, and D&D rule calculations.
-Dependency Manager - Maven - Manages project lifecycle and external libraries.
-Frontend - Vanilla HTML5, CSS3, JavaScript - A pure, "no-framework" approach to DOM manipulation and UI responsiveness.
-Database - PostgreSQL (via Supabase) - Relational storage for characters, classes, and equipment.
+* Backend - Java 21 + Spring Boot - Handles REST APIs, security, and D&D rule calculations.
+* Dependency Manager - Maven - Manages project lifecycle and external libraries.
+* Frontend - Vanilla HTML5, CSS3, JavaScript - A pure, "no-framework" approach to DOM manipulation and UI responsiveness.
+* Database - PostgreSQL (via Supabase) - Relational storage for characters, classes, and equipment.
