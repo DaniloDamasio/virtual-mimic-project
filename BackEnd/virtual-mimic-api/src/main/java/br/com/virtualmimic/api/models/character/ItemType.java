@@ -1,4 +1,4 @@
-package br.com.virtualmimic.api.models;
+package br.com.virtualmimic.api.models.character;
 
 public enum ItemType {
     ARMA,

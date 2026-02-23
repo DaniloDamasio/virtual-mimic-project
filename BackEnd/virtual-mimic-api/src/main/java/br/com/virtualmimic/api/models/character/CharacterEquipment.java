@@ -1,4 +1,4 @@
-package br.com.virtualmimic.api.models;
+package br.com.virtualmimic.api.models.character;
 
 import jakarta.persistence.*;
 import lombok.Data;
@@ -18,7 +18,7 @@ public class CharacterEquipment {
 
     @ManyToOne
     @JoinColumn(name = "character_id")
-    private Character character;
+    private CharacterModel characterModel;
 
 
     private String damageDice;

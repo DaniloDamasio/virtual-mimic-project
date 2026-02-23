@@ -1,11 +1,20 @@
-package br.com.virtualmimic.api.models;
+package br.com.virtualmimic.api.models.character;
 
+import br.com.virtualmimic.api.models.user.User;
 import jakarta.persistence.*;
+import lombok.Data;
+import lombok.NoArgsConstructor;
 
 import java.util.List;
 
 @Entity
-public class Character {
+@NoArgsConstructor
+@Data
+public class CharacterModel {
+
+    @ManyToOne(fetch = FetchType.LAZY)
+    @JoinColumn(name = "user_id", nullable = false)
+    private User owner;
 
     @Id
     @GeneratedValue(strategy = GenerationType.IDENTITY)
@@ -19,7 +28,7 @@ public class Character {
     private String characterHistory;
     private String characterAppearance;
 
-    // Character core attributes
+    // CharacterModel core attributes
     private Integer strength;
     private Integer dexterity;
     private Integer constitution;
@@ -29,6 +38,10 @@ public class Character {
 
     // To determine character evolution
     private Integer currentLevel;
+
+    // To determine character current state
+    private Integer maxHealth;
+    private Integer currentHealth;
 
     // Core character characteristics
     @ManyToOne
