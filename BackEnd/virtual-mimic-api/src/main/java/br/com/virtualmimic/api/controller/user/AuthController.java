@@ -1,5 +1,6 @@
 package br.com.virtualmimic.api.controller.user;
 
+import br.com.virtualmimic.api.dto.request.user.LoginRequestDto;
 import br.com.virtualmimic.api.dto.request.user.RegisterRequestDto;
 import br.com.virtualmimic.api.models.user.User;
 import br.com.virtualmimic.api.service.user.UserService;
@@ -30,16 +31,13 @@ public class AuthController {
                 "email", user.getEmail()));
     }
 
-    @PostMapping("/login")
-    public ResponseEntity<?> login(@RequestBody Map<String, String> body) {
-        String email = body.get("email");
-        String password = body.get("password");
 
-        if (email == null || password == null || email.isBlank() || password.isBlank()) {
+    @PostMapping("/login")
+    public ResponseEntity<?> login(@Valid @RequestBody LoginRequestDto loginDto) {
+        User user = userService.authenticate(loginDto);
+        if (loginDto.getEmail() == null || loginDto.getPassword() == null || loginDto.getEmail().isBlank() || loginDto.getPassword().isBlank()) {
             return ResponseEntity.badRequest().body(Map.of("message", "Email e senha são obrigatórios"));
         }
-
-        User user = userService.login(email, password);
         return ResponseEntity.ok(Map.of(
                 "userId", user.getUserId(),
                 "name", user.getName(),

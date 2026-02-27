@@ -1,5 +1,6 @@
 package br.com.virtualmimic.api.service.user;
 
+import br.com.virtualmimic.api.dto.request.user.LoginRequestDto;
 import br.com.virtualmimic.api.dto.request.user.RegisterRequestDto;
 import br.com.virtualmimic.api.exception.EmailAlreadyExistsException;
 import br.com.virtualmimic.api.exception.InvalidCredentialsException;
@@ -34,11 +35,11 @@ public class UserService {
         return userRepository.save(user);
     }
 
-    public User login (String email, String rawPassword) {
-        User user = userRepository.findByEmail(email.trim().toLowerCase())
+    public User authenticate (LoginRequestDto logindto) {
+        User user = userRepository.findByEmail(logindto.getEmail())
                 .orElseThrow(() -> new InvalidCredentialsException("Email ou senha inválidos"));
 
-        if (!passwordEncoder.matches(rawPassword, user.getPasswordHash())) {
+        if (!passwordEncoder.matches(logindto.getPassword(), user.getPasswordHash())) {
             throw new InvalidCredentialsException("Email ou senha inválidos");
         }
         return user;

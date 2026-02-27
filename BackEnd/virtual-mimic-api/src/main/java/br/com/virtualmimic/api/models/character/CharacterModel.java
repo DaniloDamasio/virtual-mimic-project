@@ -9,16 +9,17 @@ import java.util.List;
 
 @Entity
 @NoArgsConstructor
+@Table(name = "characters")
 @Data
 public class CharacterModel {
-
-    @ManyToOne(fetch = FetchType.LAZY)
-    @JoinColumn(name = "user_id", nullable = false)
-    private User owner;
 
     @Id
     @GeneratedValue(strategy = GenerationType.IDENTITY)
     private Long characterId;
+
+    @ManyToOne(fetch = FetchType.LAZY)
+    @JoinColumn(name = "user_id", nullable = false)
+    private User owner;
 
     // Basic information about the character
     private String characterName;
@@ -43,7 +44,7 @@ public class CharacterModel {
     private Integer maxHealth;
     private Integer currentHealth;
 
-    // Core character characteristics
+    // Core character characteristics (class, race, background)
     @ManyToOne
     @JoinColumn(name = "class_id")
     private CharacterClass characterClass;
@@ -56,6 +57,7 @@ public class CharacterModel {
     @JoinColumn(name = "background_id")
     private CharacterBackground characterBackground;
 
+    // Character inventory
     @OneToMany(mappedBy = "character")
     private List<CharacterEquipment> inventory;
 
