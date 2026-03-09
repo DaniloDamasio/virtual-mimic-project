@@ -36,7 +36,7 @@ public class UserService {
     }
 
     public User authenticate (LoginRequestDto logindto) {
-        User user = userRepository.findByEmail(logindto.getEmail())
+        User user = userRepository.findByEmail(logindto.getEmail().trim().toLowerCase())
                 .orElseThrow(() -> new InvalidCredentialsException("Email ou senha inválidos"));
 
         if (!passwordEncoder.matches(logindto.getPassword(), user.getPasswordHash())) {

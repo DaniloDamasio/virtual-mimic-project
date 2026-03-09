@@ -1,28 +1,35 @@
 package br.com.virtualmimic.api.models.character;
 
 import jakarta.persistence.*;
-import lombok.Data;
+import lombok.EqualsAndHashCode;
+import lombok.Getter;
 import lombok.NoArgsConstructor;
+import lombok.Setter;
 
 import java.util.List;
 
 @Entity
-@Data
+@Getter
+@Setter
 @NoArgsConstructor
+@EqualsAndHashCode(onlyExplicitlyIncluded = true)
 public class CharacterClass {
-        @Id
-        private Long classId;
-        private String className;
 
-        private Integer hpFirstLevel;
-        private Integer hpSubsequentLevels;
+    @Id
+    @EqualsAndHashCode.Include
+    private Long classId;
 
-        @ElementCollection
-        private List<String> savingThrowProficiencies;
+    private String className;
 
-        @OneToMany(mappedBy = "characterClass", cascade = CascadeType.ALL)
-        private List<CharacterFeature> classFeatures;
+    private Integer hpFirstLevel;
+    private Integer hpSubsequentLevels;
 
-        private boolean isSpellcaster;
-        private Integer manaPoints;
+    @ElementCollection
+    private List<String> savingThrowProficiencies;
+
+    @OneToMany(mappedBy = "characterClass", cascade = CascadeType.ALL)
+    private List<CharacterFeature> classFeatures;
+
+    private boolean isSpellcaster;
+    private Integer manaPoints;
 }

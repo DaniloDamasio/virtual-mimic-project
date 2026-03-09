@@ -2,26 +2,30 @@ package br.com.virtualmimic.api.models.character;
 
 import br.com.virtualmimic.api.models.user.User;
 import jakarta.persistence.*;
-import lombok.Data;
+import lombok.EqualsAndHashCode;
+import lombok.Getter;
 import lombok.NoArgsConstructor;
+import lombok.Setter;
 
 import java.util.List;
 
 @Entity
 @NoArgsConstructor
 @Table(name = "characters")
-@Data
+@Getter
+@Setter
+@EqualsAndHashCode(onlyExplicitlyIncluded = true)
 public class CharacterModel {
 
     @Id
     @GeneratedValue(strategy = GenerationType.IDENTITY)
+    @EqualsAndHashCode.Include
     private Long characterId;
 
     @ManyToOne(fetch = FetchType.LAZY)
     @JoinColumn(name = "user_id", nullable = false)
     private User owner;
 
-    // Basic information about the character
     private String characterName;
     private String characterLastName;
     private Integer characterAge;
@@ -29,7 +33,6 @@ public class CharacterModel {
     private String characterHistory;
     private String characterAppearance;
 
-    // CharacterModel core attributes
     private Integer strength;
     private Integer dexterity;
     private Integer constitution;
@@ -37,14 +40,11 @@ public class CharacterModel {
     private Integer wisdom;
     private Integer charisma;
 
-    // To determine character evolution
     private Integer currentLevel;
 
-    // To determine character current state
     private Integer maxHealth;
     private Integer currentHealth;
 
-    // Core character characteristics (class, race, background)
     @ManyToOne
     @JoinColumn(name = "class_id")
     private CharacterClass characterClass;
@@ -57,8 +57,7 @@ public class CharacterModel {
     @JoinColumn(name = "background_id")
     private CharacterBackground characterBackground;
 
-    // Character inventory
-    @OneToMany(mappedBy = "character")
+    @OneToMany(mappedBy = "characterModel", cascade = CascadeType.ALL, orphanRemoval = true)
     private List<CharacterEquipment> inventory;
 
     private Integer goldPieces;

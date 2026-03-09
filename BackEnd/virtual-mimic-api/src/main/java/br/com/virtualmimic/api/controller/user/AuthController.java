@@ -2,7 +2,9 @@ package br.com.virtualmimic.api.controller.user;
 
 import br.com.virtualmimic.api.dto.request.user.LoginRequestDto;
 import br.com.virtualmimic.api.dto.request.user.RegisterRequestDto;
+import br.com.virtualmimic.api.dto.response.user.AuthResponseDto;
 import br.com.virtualmimic.api.models.user.User;
+import br.com.virtualmimic.api.security.JwtTokenProvider;
 import br.com.virtualmimic.api.service.user.UserService;
 import jakarta.validation.Valid;
 import lombok.RequiredArgsConstructor;
@@ -13,34 +15,28 @@ import org.springframework.web.bind.annotation.RequestBody;
 import org.springframework.web.bind.annotation.RequestMapping;
 import org.springframework.web.bind.annotation.RestController;
 
-import java.util.Map;
-
 @RestController
 @RequestMapping("/api/auth")
 @RequiredArgsConstructor
 public class AuthController {
+
     private final UserService userService;
+    private final JwtTokenProvider jwtTokenProvider;
 
     @PostMapping("/register")
-    public ResponseEntity<?> register(@Valid @RequestBody RegisterRequestDto dto) {
-
+    public ResponseEntity<AuthResponseDto> register(@Valid @RequestBody RegisterRequestDto dto) {
         User user = userService.register(dto);
-        return ResponseEntity.status(HttpStatus.CREATED).body(Map.of(
-                "userId", user.getUserId(),
-                "name", user.getName(),
-                "email", user.getEmail()));
+        String token = jwtTokenProvider.generateToken(user.getUserId(), user.getEmail());
+
+        return ResponseEntity.status(HttpStatus.CREATED)
+                .body(new AuthResponseDto(token, user.getUserId(), user.getName(), user.getEmail()));
     }
 
-
     @PostMapping("/login")
-    public ResponseEntity<?> login(@Valid @RequestBody LoginRequestDto loginDto) {
+    public ResponseEntity<AuthResponseDto> login(@Valid @RequestBody LoginRequestDto loginDto) {
         User user = userService.authenticate(loginDto);
-        if (loginDto.getEmail() == null || loginDto.getPassword() == null || loginDto.getEmail().isBlank() || loginDto.getPassword().isBlank()) {
-            return ResponseEntity.badRequest().body(Map.of("message", "Email e senha são obrigatórios"));
-        }
-        return ResponseEntity.ok(Map.of(
-                "userId", user.getUserId(),
-                "name", user.getName(),
-                "email", user.getEmail()));
+        String token = jwtTokenProvider.generateToken(user.getUserId(), user.getEmail());
+
+        return ResponseEntity.ok(new AuthResponseDto(token, user.getUserId(), user.getName(), user.getEmail()));
     }
 }
