@@ -1,4 +1,4 @@
-# Virtual Mimic - D&D 5e Character Creator
+# Virtual Mimic - D&D 5e Character Creator and Manager
 Virtual Mimic is a website developed to help RPG players who want to create and manage their characters in an easy way, with dynamic updates and a responsive characterModel sheet!
 This project is built as a deep dive into the Foundations of Software Development, focusing on the complete lifecycle of a web application—from user interaction in the browser to complex business logic in the backend and persistent storage in the cloud.
 
@@ -12,5 +12,9 @@ This project is built as a deep dive into the Foundations of Software Developmen
 # Stack
 * Backend - Java 21 + Spring Boot - Handles REST APIs, security, and D&D rule calculations.
 * Dependency Manager - Maven - Manages project lifecycle and external libraries.
-* Frontend - Vanilla HTML5, CSS3, JavaScript - A pure, "no-framework" approach to DOM manipulation and UI responsiveness.
+* Frontend - React - Interactive UI for character creation and management, consuming the REST API.
 * Database - PostgreSQL (via Supabase) - Relational storage for characters, classes, and equipment.
+
+# Features
+* JWT Authentication — Register and login with secure tokens (24h expiration).
+* Character CRUD — Create, list, view and delete characters and their aspects (equipment, features, etc.) linked to the authenticated user.
