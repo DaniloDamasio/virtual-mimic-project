@@ -4,6 +4,7 @@ import br.com.virtualmimic.api.dto.request.user.LoginRequestDto;
 import br.com.virtualmimic.api.dto.request.user.RegisterRequestDto;
 import br.com.virtualmimic.api.exception.EmailAlreadyExistsException;
 import br.com.virtualmimic.api.exception.InvalidCredentialsException;
+import br.com.virtualmimic.api.exception.PasswordMismatchException;
 import br.com.virtualmimic.api.models.user.User;
 import br.com.virtualmimic.api.repository.UserRepository;
 import jakarta.transaction.Transactional;
@@ -21,7 +22,7 @@ public class UserService {
     @Transactional
     public User register (RegisterRequestDto dto) {
         if (!dto.getPassword().equals(dto.getConfirmPassword())) {
-            throw new IllegalArgumentException("Senha e confirmação de senha não coincidem");
+            throw new PasswordMismatchException("Senha e confirmação de senha não coincidem");
         }
         if (userRepository.existsByEmail(dto.getEmail().trim().toLowerCase())) {
             throw new EmailAlreadyExistsException("Já existe uma conta com este email");

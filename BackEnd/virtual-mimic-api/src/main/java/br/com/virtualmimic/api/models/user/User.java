@@ -30,7 +30,7 @@ public class User {
     @Column(nullable = false, length = 255)
     private String name;
 
-    @Column(nullable = false, length = 60)
+    @Column(nullable = false, length = 255)
     private String passwordHash;
 
     @OneToMany(mappedBy = "owner", cascade = CascadeType.ALL, orphanRemoval = true)

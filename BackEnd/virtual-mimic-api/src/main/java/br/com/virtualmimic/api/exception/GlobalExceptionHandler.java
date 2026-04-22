@@ -9,9 +9,24 @@ import org.springframework.web.bind.annotation.RestControllerAdvice;
 import java.time.Instant;
 import java.util.HashMap;
 import java.util.Map;
+import java.util.stream.Collectors;
 
 @RestControllerAdvice
 public class GlobalExceptionHandler {
+
+    @ExceptionHandler(MethodArgumentNotValidException.class)
+    public ResponseEntity<Map<String, Object>> handleValidation(MethodArgumentNotValidException ex) {
+        String mensagem = ex.getBindingResult().getFieldErrors().stream()
+                .map(e -> e.getField() + ": " + e.getDefaultMessage())
+                .collect(Collectors.joining(", "));
+        return ResponseEntity
+                .status(HttpStatus.BAD_REQUEST)
+                .body(Map.of(
+                        "timestamp", Instant.now().toString(),
+                        "status", 400,
+                        "error", "Validation Error",
+                        "message", mensagem));
+    }
 
     @ExceptionHandler(CharacterNotFoundException.class)
     public ResponseEntity<Map<String, Object>> handleCharacterNotFound(CharacterNotFoundException ex) {
@@ -24,8 +39,8 @@ public class GlobalExceptionHandler {
                         "message", ex.getMessage()));
     }
 
-    @ExceptionHandler(IllegalArgumentException.class)
-    public ResponseEntity<Map<String, Object>> handleIllegalArgument(IllegalArgumentException ex) {
+    @ExceptionHandler(PasswordMismatchException.class)
+    public ResponseEntity<Map<String, Object>> handlePasswordMismatch(PasswordMismatchException ex) {
         return ResponseEntity
                 .status(HttpStatus.BAD_REQUEST)
                 .body(Map.of(
