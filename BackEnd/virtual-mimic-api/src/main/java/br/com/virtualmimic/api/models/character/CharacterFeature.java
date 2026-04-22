@@ -1,14 +1,20 @@
 package br.com.virtualmimic.api.models.character;
 
 import jakarta.persistence.*;
-import lombok.Data;
+import lombok.EqualsAndHashCode;
+import lombok.Getter;
 import lombok.NoArgsConstructor;
+import lombok.Setter;
 
 @Entity
-@Data
+@Getter
+@Setter
 @NoArgsConstructor
+@EqualsAndHashCode(onlyExplicitlyIncluded = true)
 public class CharacterFeature {
+
     @Id
+    @EqualsAndHashCode.Include
     private Long id;
 
     private String name;

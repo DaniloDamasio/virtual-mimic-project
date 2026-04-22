@@ -21,5 +21,6 @@ public class RegisterRequestDto {
     private String password;
 
     @NotBlank(message = "Confirmação de senha é obrigatória")
+    @Size(min = 8, message = "Confirmação de senha deve ter no mínimo 8 caracteres")
     private String confirmPassword;
 }

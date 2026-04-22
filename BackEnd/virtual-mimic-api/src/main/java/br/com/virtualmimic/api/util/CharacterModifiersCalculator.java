@@ -6,7 +6,7 @@ import br.com.virtualmimic.api.models.character.CharacterModel;
 public class CharacterModifiersCalculator {
 
     public static int getAbilityModifier(int abilityScore) {
-        return (abilityScore - 10) / 2;
+        return Math.floorDiv(abilityScore - 10, 2);
     }
 
     public static int getProficiencyBonus(int level) {
