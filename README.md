@@ -6,14 +6,14 @@ This project is built as a deep dive into the Foundations of Software Developmen
 * The core objective of this project is to implement a robust CRUD (Create, Read, Update, Delete) system. It demonstrates:
 * State Management: How user inputs are captured and validated.
 * Business Logic: Translating complex tabletop RPG rules (Hit Points calculation, Proficiency Bonuses, Ability Modifiers) into clean Java code.
-* Data Persistence: Mapping relational data models to a cloud-hosted PostgreSQL database.
+* Data Persistence: Mapping relational data models to an in-memory H2 database managed by Hibernate.
 * Responsiveness: Creating a dynamic UI that updates in real-time as characterModel levels change, without relying on heavy frontend frameworks.
 
 # Stack
 * Backend - Java 21 + Spring Boot - Handles REST APIs, security, and D&D rule calculations.
 * Dependency Manager - Maven - Manages project lifecycle and external libraries.
-* Frontend - React - Interactive UI for character creation and management, consuming the REST API.
-* Database - PostgreSQL (via Supabase) - Relational storage for characters, classes, and equipment.
+* Frontend - Vanilla HTML5/CSS3/JavaScript - Interactive UI for character creation and management, consuming the REST API.
+* Database - H2 (in-memory) - Relational storage for characters, classes, and equipment; schema auto-managed by Hibernate.
 
 # Features
 * JWT Authentication — Register and login with secure tokens (24h expiration).
