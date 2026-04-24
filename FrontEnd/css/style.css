@@ -59,29 +59,35 @@ body {
 
 .left-panel {
   flex: 0 0 45%;
-  padding: 60px 52px;
+  padding: 60px 10px 60px 52px;
   display: flex;
   flex-direction: column;
   justify-content: center;
+  align-items: flex-end;
+  text-align: left;
   gap: 24px;
 }
 
 .brand-title {
   font-family: var(--font-display);
-  font-size: 2.6rem;
+  font-size: 4.4rem;
   font-weight: 400;
   color: var(--left-title);
   letter-spacing: 0.03em;
   line-height: 1.2;
+  width: 100%;
+  max-width: 680px;
+  text-align: center;
 }
 
 .brand-desc {
   font-family: var(--font-body);
-  font-size: 1.05rem;
-  line-height: 1.8;
+  font-size: 1.75rem;
+  line-height: 1.45;
   color: var(--left-body);
   font-style: italic;
-  max-width: 520px;
+  width: 100%;
+  max-width: 680px;
 }
 
 .right-panel {
@@ -98,22 +104,22 @@ body {
   display: flex;
   background: var(--tab-container-bg);
   border-radius: var(--radius-pill);
-  padding: 4px;
+  padding: 0px;
   width: 100%;
-  max-width: 440px;
+  max-width: 500px;
   gap: 2px;
 }
 
 .tab {
   flex: 1;
-  padding: 10px 24px;
+  padding: 14px 24px;
   background: transparent;
   border: none;
   border-radius: var(--radius-pill);
   color: var(--tab-inactive-text);
   font-family: var(--font-display);
-  font-size: 0.78rem;
-  font-weight: 400;
+  font-size: 0.90rem;
+  font-weight: 600;
   letter-spacing: 0.10em;
   cursor: pointer;
   transition: background var(--transition), color var(--transition);
@@ -127,7 +133,7 @@ body {
 
 .auth-card {
   width: 100%;
-  max-width: 440px;
+  max-width: 500px;
   background: var(--card-bg);
   border-radius: var(--radius-card);
   padding: 32px 28px 36px;
@@ -143,7 +149,7 @@ body {
 
 .card-title {
   font-family: var(--font-display);
-  font-size: 1.75rem;
+  font-size: 3.00rem;
   font-weight: 400;
   color: var(--clr-white);
   letter-spacing: 0.02em;
@@ -153,7 +159,7 @@ body {
 
 .card-subtitle {
   font-family: var(--font-body);
-  font-size: 0.95rem;
+  font-size: 1.50rem;
   color: var(--accent);
   font-style: italic;
 }
@@ -236,22 +242,23 @@ body {
 .btn-submit {
   width: 100%;
   margin-top: 8px;
-  padding: 13px 24px;
+  padding: 16px 24px;
   background: var(--clr-dark);
   border: none;
   border-radius: var(--radius-input);
   color: var(--clr-gold-light);
   font-family: var(--font-display);
-  font-size: 1.05rem;
-  font-weight: 400;
-  letter-spacing: 0.06em;
+  font-size: 1.2rem;
+  font-weight: 600;
+  letter-spacing: 0.12em;
+  text-transform: uppercase;
   cursor: pointer;
-  transition: background var(--transition), box-shadow var(--transition), opacity var(--transition);
+  transition: background var(--transition), transform var(--transition), opacity var(--transition);
 }
 
 .btn-submit:hover:not(:disabled) {
   background: #2a2e1a;
-  box-shadow: 0 0 20px rgba(255, 196, 114, 0.30);
+  transform: scale(1.04);
 }
 
 .btn-submit:disabled {
