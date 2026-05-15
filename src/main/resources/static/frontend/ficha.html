@@ -1,0 +1,165 @@
+<!DOCTYPE html>
+<html lang="pt-BR">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>Virtual Mimic — Ficha</title>
+  <link rel="preconnect" href="https://fonts.googleapis.com">
+  <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+  <link href="https://fonts.googleapis.com/css2?family=IM+Fell+DW+Pica+SC&family=Jacques+Francois&family=Cinzel:wght@400;600;700&family=Crimson+Text:ital,wght@0,400;0,600;1,400&display=swap" rel="stylesheet">
+  <link rel="stylesheet" href="css/style.css">
+</head>
+<body class="ficha-body">
+
+  <header class="ficha-topbar">
+    <a class="creation-brand" href="personagens.html" aria-label="Virtual Mimic — Início">
+      Virtual <span class="brand-m">M</span>imic
+    </a>
+    <a class="btn-back" href="personagens.html">Voltar</a>
+  </header>
+
+  <main class="ficha-main">
+
+    <nav class="ficha-tabs" role="tablist">
+      <button class="ficha-tab active" type="button" data-tab="ficha">Ficha</button>
+      <button class="ficha-tab" type="button" data-tab="inventario">Inventário</button>
+      <button class="ficha-tab" type="button" data-tab="magias">Magias</button>
+      <button class="ficha-tab" type="button" data-tab="habilidades">Habilidades</button>
+      <button class="ficha-tab" type="button" data-tab="descricao">Descrição</button>
+    </nav>
+
+    <section class="ficha-board">
+      <div class="ficha-grid">
+
+        <div class="ficha-col">
+
+          <div class="ficha-photo">Foto</div>
+
+          <div class="ficha-info">
+            <div class="info-row"><span>Nome:</span><span></span></div>
+            <div class="info-row"><span>Jogador:</span><span></span></div>
+            <div class="info-row"><span>Classe:</span><span></span></div>
+            <div class="info-row"><span>Raça:</span><span></span></div>
+            <div class="info-row"><span>Antecedente:</span><span></span></div>
+
+            <div class="info-row info-level">
+              <span class="info-level-label">NIVEL</span>
+              <div class="level-stepper">
+                <button type="button">−</button>
+                <span>1</span>
+                <button type="button">+</button>
+              </div>
+            </div>
+          </div>
+
+          <section class="ficha-life-wrap">
+            <h3 class="ficha-life-title">Vida</h3>
+            <div class="ficha-life">
+              <div class="life-stepper">
+                <button type="button">−</button>
+                <span>12/12</span>
+                <button type="button">+</button>
+              </div>
+            </div>
+          </section>
+
+          <div class="ficha-stats">
+            <div class="stat-row"><span>Dado de vida</span><span>1D10</span></div>
+            <div class="stat-row"><span>Deslocamento</span><span>9M</span></div>
+            <div class="stat-row"><span>Percepção passiva</span><span>10</span></div>
+            <div class="stat-row"><span>Bônus de proficiência</span><span>+2</span></div>
+            <div class="stat-row"><span>Classe de armadura</span><span>12</span></div>
+          </div>
+
+        </div>
+
+        <div class="ficha-col">
+
+          <div class="ficha-card-light">
+            <h2>Atributos</h2>
+            <div class="attr-grid">
+              <div class="attr-shield">
+                <span class="attr-name">Força</span>
+                <span class="attr-value">8</span>
+                <span class="attr-mod">−1</span>
+              </div>
+              <div class="attr-shield">
+                <span class="attr-name">Inteligência</span>
+                <span class="attr-value">8</span>
+                <span class="attr-mod">−1</span>
+              </div>
+              <div class="attr-shield">
+                <span class="attr-name">Carisma</span>
+                <span class="attr-value">8</span>
+                <span class="attr-mod">−1</span>
+              </div>
+              <div class="attr-shield">
+                <span class="attr-name">Constituição</span>
+                <span class="attr-value">8</span>
+                <span class="attr-mod">−1</span>
+              </div>
+              <div class="attr-shield">
+                <span class="attr-name">Destreza</span>
+                <span class="attr-value">8</span>
+                <span class="attr-mod">−1</span>
+              </div>
+              <div class="attr-shield">
+                <span class="attr-name">Sabedoria</span>
+                <span class="attr-value">8</span>
+                <span class="attr-mod">−1</span>
+              </div>
+            </div>
+          </div>
+
+          <div class="ficha-card-dark">
+            <h2>Salva guardas</h2>
+            <ul class="saves-list">
+              <li><label><input type="checkbox" checked> Força</label><span>+4</span></li>
+              <li><label><input type="checkbox"> Destreza</label><span>+1</span></li>
+              <li><label><input type="checkbox"> Constituição</label><span>+1</span></li>
+              <li><label><input type="checkbox"> Inteligência</label><span>+1</span></li>
+              <li><label><input type="checkbox"> Sabedoria</label><span>+1</span></li>
+              <li><label><input type="checkbox"> Carisma</label><span>+1</span></li>
+            </ul>
+            <p class="saves-furia">Pontos de Fúria: 2</p>
+          </div>
+
+        </div>
+
+        <div class="ficha-col">
+
+          <div class="ficha-card-dark ficha-pericias">
+            <h2>Perícias</h2>
+            <ul>
+              <li><span>Acrobacia <em>(Des)</em></span><span>(−1)</span></li>
+              <li><span>Arcanismo <em>(Int)</em></span><span>(−1)</span></li>
+              <li><span>Atletismo <em>(For)</em></span><span>(+2)</span></li>
+              <li><span>Atuação <em>(Car)</em></span><span>(−1)</span></li>
+              <li><span>Enganação <em>(Car)</em></span><span>(−1)</span></li>
+              <li><span>Furtividade <em>(Des)</em></span><span>(−1)</span></li>
+              <li><span>História <em>(Int)</em></span><span>(−1)</span></li>
+              <li><span>Intimidação <em>(Car)</em></span><span>(−1)</span></li>
+              <li><span>Intuição <em>(Sab)</em></span><span>(+1)</span></li>
+              <li><span>Investigação <em>(Int)</em></span><span>(−1)</span></li>
+              <li><span>Lidar com Animais <em>(Sab)</em></span><span>(−1)</span></li>
+              <li><span>Medicina <em>(Sab)</em></span><span>(−1)</span></li>
+              <li><span>Natureza <em>(Int)</em></span><span>(−1)</span></li>
+              <li><span>Percepção <em>(Sab)</em></span><span>(−1)</span></li>
+              <li><span>Persuasão <em>(Car)</em></span><span>(−1)</span></li>
+              <li><span>Prestidigitação <em>(Des)</em></span><span>(−1)</span></li>
+              <li><span>Religião <em>(Int)</em></span><span>(+1)</span></li>
+              <li><span>Sobrevivência <em>(Sab)</em></span><span>(−1)</span></li>
+            </ul>
+          </div>
+
+        </div>
+
+      </div>
+    </section>
+
+  </main>
+
+  <script src="js/api.js"></script>
+  <script src="js/ficha.js"></script>
+</body>
+</html>

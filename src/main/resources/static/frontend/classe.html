@@ -1,0 +1,193 @@
+<!DOCTYPE html>
+<html lang="pt-BR">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>Virtual Mimic — Classe</title>
+  <link rel="preconnect" href="https://fonts.googleapis.com">
+  <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+  <link href="https://fonts.googleapis.com/css2?family=IM+Fell+DW+Pica+SC&family=Jacques+Francois&family=Cinzel:wght@400;600;700&family=Crimson+Text:ital,wght@0,400;0,600;1,400&display=swap" rel="stylesheet">
+  <link rel="stylesheet" href="css/style.css">
+</head>
+<body class="creation-body">
+
+  <a class="creation-brand" href="characters.html" aria-label="Virtual Mimic — Início">
+    Virtual <span class="brand-m">M</span>imic
+  </a>
+
+  <main class="creation-main">
+
+    <section class="creation-hero" data-hero-grid>
+      <h1 class="creation-title">Classe</h1>
+      <p class="creation-intro">
+        As classes definem o tipo de herói que um personagem é, determinando suas
+        habilidades, poderes e estilo de jogo.
+      </p>
+      <p class="creation-intro">
+        Cada classe possui características próprias, como capacidades especiais,
+        progressão de habilidades ao subir de nível, equipamentos que pode utilizar
+        e seu papel dentro do grupo, como causar dano, defender aliados, usar magia
+        ou oferecer suporte. Dessa forma, a classe é um dos principais elementos que
+        moldam a forma como o personagem é jogado e evolui ao longo da aventura.
+      </p>
+
+      <div class="creation-toolbar">
+        <a class="btn-back" href="raca.html">Voltar</a>
+        <span class="creation-hint">Habilidades concedidas serão adicionadas automaticamente.</span>
+      </div>
+    </section>
+
+    <section class="creation-hero hero-detail" data-hero-detail hidden>
+      <button class="btn-escolher" type="button"
+              data-action="choose-class" data-next="antecedente.html">
+        Escolher
+      </button>
+      <button class="btn-back" type="button" data-action="back-to-grid">Voltar</button>
+    </section>
+
+    <ul class="class-grid" data-class-grid>
+
+      <li class="class-card" data-class="barbaro">
+        <h3 class="class-name">Bárbaro</h3>
+        <img class="class-icon" src="assets/barbaro-icon.svg" alt="">
+        <button class="btn-details" type="button">Detalhes</button>
+      </li>
+
+      <li class="class-card" data-class="bardo">
+        <h3 class="class-name">Bardo</h3>
+        <img class="class-icon" src="assets/bardo-icon.svg" alt="">
+        <button class="btn-details" type="button">Detalhes</button>
+      </li>
+
+      <li class="class-card" data-class="monge">
+        <h3 class="class-name">Monge</h3>
+        <img class="class-icon" src="assets/monge-icon.svg" alt="">
+        <button class="btn-details" type="button">Detalhes</button>
+      </li>
+
+      <li class="class-card" data-class="ladino">
+        <h3 class="class-name">Ladino</h3>
+        <img class="class-icon" src="assets/ladino-icon.svg" alt="">
+        <button class="btn-details" type="button">Detalhes</button>
+      </li>
+
+      <li class="class-card" data-class="paladino">
+        <h3 class="class-name">Paladino</h3>
+        <img class="class-icon" src="assets/paladino-icon.svg" alt="">
+        <button class="btn-details" type="button">Detalhes</button>
+      </li>
+
+      <li class="class-card" data-class="clerigo">
+        <h3 class="class-name">Clérigo</h3>
+        <img class="class-icon" src="assets/clerigo-icon.svg" alt="">
+        <button class="btn-details" type="button">Detalhes</button>
+      </li>
+
+    </ul>
+
+    <article class="class-detail" data-class-detail hidden>
+      <div class="detail-grid">
+
+        <section class="detail-left">
+          <h2>Descrição</h2>
+          <p>Um combatente feroz que canaliza sua força e instintos primitivos para
+          dominar o campo de batalha. Diferente de outras classes mais técnicas ou
+          estratégicas, o bárbaro luta movido pela emoção, pela sobrevivência e por
+          uma fúria quase sobrenatural.</p>
+          <p>Sua principal característica é a habilidade de entrar em estado de fúria,
+          no qual seu poder físico aumenta significativamente, permitindo causar mais
+          dano com ataques corpo a corpo e resistir a ferimentos que seriam fatais
+          para outros aventureiros. Enquanto está em fúria, ele se torna uma verdadeira
+          máquina de combate, ignorando a dor e avançando sem hesitação contra seus
+          inimigos.</p>
+
+          <h2>Características de Classe</h2>
+          <ul class="detail-bullets">
+            <li><strong>Dado de Vida:</strong> 1d12 por nível de bárbaro.</li>
+            <li><strong>Pontos de Vida no 1º Nível:</strong> 12 + seu modificador de Constituição.</li>
+            <li><strong>Pontos de Vida nos Níveis Seguintes:</strong> 1d12 (ou 7) + modificador de Constituição por nível após o 1º.</li>
+            <li><strong>Proficiências em Armaduras:</strong> armaduras leves, médias e escudos.</li>
+            <li><strong>Armas:</strong> armas simples, armas marciais.</li>
+            <li><strong>Ferramentas:</strong> nenhuma.</li>
+            <li><strong>Testes de Resistência:</strong> Força, Constituição.</li>
+            <li><strong>Perícias:</strong> escolha duas dentre Adestrar Animais, Atletismo, Intimidação, Natureza, Percepção e Sobrevivência.</li>
+          </ul>
+
+          <h3>Ataque Descuidado</h3>
+          <p>A partir do 2º nível, você pode desistir de toda preocupação com sua defesa
+          para atacar com um desespero feroz. Quando você fizer o seu primeiro ataque no
+          turno, você pode decidir atacar descuidadamente. Fazer isso lhe concede vantagem
+          nas jogadas de ataque com armas corpo-a-corpo usando Força durante seu turno,
+          porém, as jogadas de ataque feitas contra você possuem vantagem até o início
+          do seu próximo turno.</p>
+
+          <h3>Sentido de Perigo</h3>
+          <p>No 2º nível, você adquire um sentido sobrenatural de quando as coisas próximas
+          não estão como deveriam, concedendo a você uma chance maior quando estiver
+          evitando perigos.</p>
+        </section>
+
+        <aside class="detail-right">
+          <div class="level-table-wrap">
+            <table class="level-table">
+              <caption>O Bárbaro</caption>
+              <thead>
+                <tr>
+                  <th>Nível</th>
+                  <th>Bônus de Proficiência</th>
+                  <th>Características</th>
+                  <th>Fúrias</th>
+                  <th>Dano de Fúria</th>
+                </tr>
+              </thead>
+              <tbody>
+                <tr><td>1º</td>  <td>+2</td><td>Fúria, Defesa sem Armadura</td>              <td>2</td>        <td>+2</td></tr>
+                <tr><td>2º</td>  <td>+2</td><td>Ataque Descuidado, Sentido de Perigo</td>     <td>2</td>        <td>+2</td></tr>
+                <tr><td>3º</td>  <td>+2</td><td>Caminho Primitivo</td>                        <td>3</td>        <td>+2</td></tr>
+                <tr><td>4º</td>  <td>+2</td><td>Incremento no Valor de Habilidade</td>        <td>3</td>        <td>+2</td></tr>
+                <tr><td>5º</td>  <td>+3</td><td>Ataque Extra, Movimento Rápido</td>           <td>3</td>        <td>+2</td></tr>
+                <tr><td>6º</td>  <td>+3</td><td>Característica de Caminho Primitivo</td>      <td>4</td>        <td>+2</td></tr>
+                <tr><td>7º</td>  <td>+3</td><td>Instinto Selvagem</td>                        <td>4</td>        <td>+2</td></tr>
+                <tr><td>8º</td>  <td>+3</td><td>Incremento no Valor de Habilidade</td>        <td>4</td>        <td>+2</td></tr>
+                <tr><td>9º</td>  <td>+4</td><td>Crítico Brutal (+1 dado)</td>                 <td>4</td>        <td>+3</td></tr>
+                <tr><td>10º</td> <td>+4</td><td>Característica de Caminho Primitivo</td>      <td>4</td>        <td>+3</td></tr>
+                <tr><td>11º</td> <td>+4</td><td>Fúria Implacável</td>                          <td>4</td>        <td>+3</td></tr>
+                <tr><td>12º</td> <td>+4</td><td>Incremento no Valor de Habilidade</td>        <td>5</td>        <td>+3</td></tr>
+                <tr><td>13º</td> <td>+5</td><td>Crítico Brutal (+2 dados)</td>                <td>5</td>        <td>+3</td></tr>
+                <tr><td>14º</td> <td>+5</td><td>Característica de Caminho Primitivo</td>      <td>5</td>        <td>+3</td></tr>
+                <tr><td>15º</td> <td>+5</td><td>Fúria Implacável</td>                          <td>5</td>        <td>+3</td></tr>
+                <tr><td>16º</td> <td>+5</td><td>Incremento no Valor de Habilidade</td>        <td>5</td>        <td>+4</td></tr>
+                <tr><td>17º</td> <td>+6</td><td>Crítico Brutal (+3 dados)</td>                <td>6</td>        <td>+4</td></tr>
+                <tr><td>18º</td> <td>+6</td><td>Força Indomável</td>                          <td>6</td>        <td>+4</td></tr>
+                <tr><td>19º</td> <td>+6</td><td>Incremento no Valor de Habilidade</td>        <td>6</td>        <td>+4</td></tr>
+                <tr><td>20º</td> <td>+6</td><td>Campeão Primitivo</td>                        <td>Ilimitado</td><td>+4</td></tr>
+              </tbody>
+            </table>
+          </div>
+
+          <h3>Defesa sem Armadura</h3>
+          <p>Quando você não estiver vestindo qualquer armadura, sua Classe de Armadura
+          será 10 + seu modificador de Destreza + seu modificador de Constituição. Você
+          pode usar um escudo e continuar a receber esse benefício.</p>
+
+          <h3>Fúria</h3>
+          <p>Você pode entrar em fúria como uma ação bônus, ganhando vantagens em testes
+          de Força, causando mais dano em ataques corpo a corpo com base em Força e
+          recebendo resistência a danos físicos como concussão, corte e perfuração,
+          desde que não esteja usando armadura pesada.</p>
+          <p>A fúria dura até 1 minuto, mas pode acabar antes caso você não ataque nem
+          sofra dano em um turno, ou fique inconsciente, e durante esse estado não é
+          possível conjurar ou manter magias. Além disso, o número de vezes que você
+          pode entrar em fúria é limitado pelo seu nível, sendo recuperado após um
+          descanso longo.</p>
+        </aside>
+
+      </div>
+    </article>
+
+  </main>
+
+  <script src="js/api.js"></script>
+  <script src="js/creation.js"></script>
+</body>
+</html>
