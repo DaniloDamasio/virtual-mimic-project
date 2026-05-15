@@ -1,0 +1,57 @@
+<!DOCTYPE html>
+<html lang="pt-br">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Virtual Mimic - Atributos</title>
+    <link rel="stylesheet" href="atributos.css">
+    <link href="https://fonts.googleapis.com/css2?family=IM+Fell+DW+Pica+SC&display=swap" rel="stylesheet">
+</head>
+<body>
+    <div class="bg-container"></div>
+    <div class="bg-overlay"></div>
+    
+    <div class="brand">VIRTUAL MIMIC</div>
+
+    <main class="container">
+        <header>
+            <h1 class="main-title">Atributos</h1>
+            <p class="description">Aquilo que vai definir as proezas e fraquezas do seu personagem. No que ele se destaca?</p>
+        </header>
+
+        <section class="attributes-line">
+            <div class="background-line"></div>
+            <div class="attributes-grid" id="attributes-container">
+                </div>
+        </section>
+
+        <footer class="footer-controls">
+            <div class="points-info">
+                <div class="remaining-points">
+                    <span id="points-value">24</span> PONTOS RESTANTES PARA GASTAR
+                </div>
+                <div class="limits">
+                    MINIMO: <span class="gold-text">8</span> 
+                    &nbsp;&nbsp;&nbsp; 
+                    MAXIMO: <span class="gold-text">15</span>
+                </div>
+            </div>
+
+            <div class="action-buttons">
+                <button class="btn btn-primary">PROSSEGUIR</button>
+                <button class="btn btn-secondary">VOLTAR</button>
+            </div>
+        </footer>
+    </main>
+
+    <div class="modal-overlay" id="attribute-modal">
+        <div class="modal-box">
+            <button class="close-modal" onclick="closeModal()">✕</button>
+            <h2 class="modal-title" id="modal-title-text">Atributo</h2>
+            <p class="modal-body" id="modal-body-text">Descrição.</p>
+        </div>
+    </div>
+
+    <script src="script.js"></script>
+</body>
+</html>
