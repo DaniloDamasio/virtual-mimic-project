@@ -29,7 +29,7 @@
     </nav>
 
     <section class="ficha-board">
-      <div class="ficha-grid">
+      <div class="ficha-grid" data-tab-panel="ficha">
 
         <div class="ficha-col">
 
@@ -78,35 +78,71 @@
           <div class="ficha-card-light">
             <h2>Atributos</h2>
             <div class="attr-grid">
-              <div class="attr-shield">
-                <span class="attr-name">Força</span>
-                <span class="attr-value">8</span>
-                <span class="attr-mod">−1</span>
+              <div class="attr-card">
+                <div class="attr-shield-outer">
+                  <div class="attr-shield-inner">
+                    <span class="attr-name-btn">Força</span>
+                    <span class="attr-value">8</span>
+                  </div>
+                </div>
+                <div class="attr-mod-group">
+                  <div class="attr-mod-circle">−1</div>
+                </div>
               </div>
-              <div class="attr-shield">
-                <span class="attr-name">Inteligência</span>
-                <span class="attr-value">8</span>
-                <span class="attr-mod">−1</span>
+              <div class="attr-card">
+                <div class="attr-shield-outer">
+                  <div class="attr-shield-inner">
+                    <span class="attr-name-btn">Inteligência</span>
+                    <span class="attr-value">8</span>
+                  </div>
+                </div>
+                <div class="attr-mod-group">
+                  <div class="attr-mod-circle">−1</div>
+                </div>
               </div>
-              <div class="attr-shield">
-                <span class="attr-name">Carisma</span>
-                <span class="attr-value">8</span>
-                <span class="attr-mod">−1</span>
+              <div class="attr-card">
+                <div class="attr-shield-outer">
+                  <div class="attr-shield-inner">
+                    <span class="attr-name-btn">Carisma</span>
+                    <span class="attr-value">8</span>
+                  </div>
+                </div>
+                <div class="attr-mod-group">
+                  <div class="attr-mod-circle">−1</div>
+                </div>
               </div>
-              <div class="attr-shield">
-                <span class="attr-name">Constituição</span>
-                <span class="attr-value">8</span>
-                <span class="attr-mod">−1</span>
+              <div class="attr-card">
+                <div class="attr-shield-outer">
+                  <div class="attr-shield-inner">
+                    <span class="attr-name-btn">Constituição</span>
+                    <span class="attr-value">8</span>
+                  </div>
+                </div>
+                <div class="attr-mod-group">
+                  <div class="attr-mod-circle">−1</div>
+                </div>
               </div>
-              <div class="attr-shield">
-                <span class="attr-name">Destreza</span>
-                <span class="attr-value">8</span>
-                <span class="attr-mod">−1</span>
+              <div class="attr-card">
+                <div class="attr-shield-outer">
+                  <div class="attr-shield-inner">
+                    <span class="attr-name-btn">Destreza</span>
+                    <span class="attr-value">8</span>
+                  </div>
+                </div>
+                <div class="attr-mod-group">
+                  <div class="attr-mod-circle">−1</div>
+                </div>
               </div>
-              <div class="attr-shield">
-                <span class="attr-name">Sabedoria</span>
-                <span class="attr-value">8</span>
-                <span class="attr-mod">−1</span>
+              <div class="attr-card">
+                <div class="attr-shield-outer">
+                  <div class="attr-shield-inner">
+                    <span class="attr-name-btn">Sabedoria</span>
+                    <span class="attr-value">8</span>
+                  </div>
+                </div>
+                <div class="attr-mod-group">
+                  <div class="attr-mod-circle">−1</div>
+                </div>
               </div>
             </div>
           </div>
@@ -155,6 +191,211 @@
         </div>
 
       </div>
+
+      <section class="inventory-content" data-tab-panel="inventario" hidden>
+
+        <header class="inventory-summary">
+          <div class="inventory-summary-info">
+            <div class="inventory-summary-row">
+              <span><strong>Dinheiro:</strong></span>
+              <span><strong>Peso total:</strong></span>
+            </div>
+            <div class="inventory-summary-row">
+              <span><strong>Total de itens:</strong></span>
+            </div>
+          </div>
+          <button class="btn-add-item" type="button">Adicionar item</button>
+        </header>
+
+        <div class="inventory-grid">
+
+          <section class="inventory-card inventory-items">
+            <h3>Itens Gerais</h3>
+          </section>
+
+          <div class="inventory-right">
+
+            <section class="inventory-card">
+              <h3>Armaduras</h3>
+              <div class="armor-row">
+                <div class="attr-card armor-shield">
+                  <div class="attr-shield-outer">
+                    <div class="attr-shield-inner">
+                      <span class="attr-name-btn">CA</span>
+                      <span class="attr-value">12</span>
+                    </div>
+                  </div>
+                </div>
+                <div class="armor-slots">
+                  <div class="armor-slot"></div>
+                  <div class="armor-slot"></div>
+                  <div class="armor-slot"></div>
+                </div>
+              </div>
+            </section>
+
+            <section class="inventory-card">
+              <h3>Poções</h3>
+            </section>
+
+          </div>
+
+        </div>
+
+      </section>
+
+      <section class="inventory-content" data-tab-panel="magias" hidden>
+
+        <header class="inventory-summary">
+          <div class="inventory-summary-info">
+            <div class="inventory-summary-row">
+              <span><strong>Atributo conjurador:</strong></span>
+              <span><strong>CD da magia:</strong></span>
+            </div>
+            <div class="inventory-summary-row">
+              <span><strong>Total de magias:</strong></span>
+            </div>
+          </div>
+          <button class="btn-add-item" type="button">Adicionar magia</button>
+        </header>
+
+        <div class="inventory-grid">
+
+          <section class="inventory-card inventory-items">
+            <h3>Magias Conhecidas</h3>
+          </section>
+
+          <div class="inventory-right">
+
+            <section class="inventory-card">
+              <h3>Slots de Magia</h3>
+              <div class="armor-row">
+                <div class="attr-card armor-shield">
+                  <div class="attr-shield-outer">
+                    <div class="attr-shield-inner">
+                      <span class="attr-name-btn">Nv 1</span>
+                      <span class="attr-value">4</span>
+                    </div>
+                  </div>
+                </div>
+                <div class="armor-slots">
+                  <div class="armor-slot"></div>
+                  <div class="armor-slot"></div>
+                  <div class="armor-slot"></div>
+                </div>
+              </div>
+            </section>
+
+            <section class="inventory-card">
+              <h3>Truques</h3>
+            </section>
+
+          </div>
+
+        </div>
+
+      </section>
+
+      <section class="inventory-content" data-tab-panel="habilidades" hidden>
+
+        <header class="inventory-summary">
+          <div class="inventory-summary-info">
+            <div class="inventory-summary-row">
+              <span><strong>Bônus de proficiência:</strong></span>
+              <span><strong>Inspiração:</strong></span>
+            </div>
+            <div class="inventory-summary-row">
+              <span><strong>Total de habilidades:</strong></span>
+            </div>
+          </div>
+          <button class="btn-add-item" type="button">Adicionar habilidade</button>
+        </header>
+
+        <div class="inventory-grid">
+
+          <section class="inventory-card inventory-items">
+            <h3>Habilidades de Classe</h3>
+          </section>
+
+          <div class="inventory-right">
+
+            <section class="inventory-card">
+              <h3>Talentos</h3>
+              <div class="armor-row">
+                <div class="attr-card armor-shield">
+                  <div class="attr-shield-outer">
+                    <div class="attr-shield-inner">
+                      <span class="attr-name-btn">TLT</span>
+                      <span class="attr-value">2</span>
+                    </div>
+                  </div>
+                </div>
+                <div class="armor-slots">
+                  <div class="armor-slot"></div>
+                  <div class="armor-slot"></div>
+                  <div class="armor-slot"></div>
+                </div>
+              </div>
+            </section>
+
+            <section class="inventory-card">
+              <h3>Habilidades Raciais</h3>
+            </section>
+
+          </div>
+
+        </div>
+
+      </section>
+
+      <section class="description-content" data-tab-panel="descricao" hidden>
+
+        <div class="description-field description-field--main">
+          <h3>História</h3>
+          <textarea class="description-textarea" placeholder="Escreva seu texto aqui..."></textarea>
+        </div>
+
+        <div class="description-grid">
+
+          <div class="description-field">
+            <h3>Aparência</h3>
+            <textarea class="description-textarea" placeholder="Escreva seu texto aqui..."></textarea>
+          </div>
+
+          <div class="description-field">
+            <h3>Personalidade</h3>
+            <textarea class="description-textarea" placeholder="Escreva seu texto aqui..."></textarea>
+          </div>
+
+          <div class="description-field">
+            <h3>Traços de personalidade</h3>
+            <textarea class="description-textarea" placeholder="Escreva seu texto aqui..."></textarea>
+          </div>
+
+          <div class="description-field">
+            <h3>Objetivos</h3>
+            <textarea class="description-textarea" placeholder="Escreva seu texto aqui..."></textarea>
+          </div>
+
+          <div class="description-field">
+            <h3>Ideais</h3>
+            <textarea class="description-textarea" placeholder="Escreva seu texto aqui..."></textarea>
+          </div>
+
+          <div class="description-field">
+            <h3>Laços</h3>
+            <textarea class="description-textarea" placeholder="Escreva seu texto aqui..."></textarea>
+          </div>
+
+        </div>
+
+        <div class="description-field description-field--full">
+          <h3>Fraquezas e falhas</h3>
+          <textarea class="description-textarea" placeholder="Escreva seu texto aqui..."></textarea>
+        </div>
+
+      </section>
+
     </section>
 
   </main>

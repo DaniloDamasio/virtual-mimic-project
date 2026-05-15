@@ -105,4 +105,138 @@
       if (countEl) countEl.textContent = String(boxes.length);
     });
   }
+
+  const attrContainer = document.getElementById('attributes-container');
+  if (attrContainer) {
+    const attributesData = [
+      {
+        id: 'forca',
+        name: 'Força',
+        value: 8,
+        description: 'O atributo de Força representa o poder físico bruto de um personagem. Ele é usado principalmente para determinar a eficácia em ataques corpo a corpo, a capacidade de causar dano com armas pesadas e a facilidade em realizar ações como empurrar, escalar, puxar ou levantar objetos.'
+      },
+      {
+        id: 'inteligencia',
+        name: 'Inteligência',
+        value: 8,
+        description: 'A Inteligência mede a agudeza mental, raciocínio lógico e conhecimento acumulado. É crucial para magos para conjurar magias e para todos os personagens em testes de conhecimento, investigação e habilidades analíticas.'
+      },
+      {
+        id: 'constituicao',
+        name: 'Constituição',
+        value: 8,
+        description: 'A Constituição representa a saúde, vigor e força vital. Ela determina seus pontos de vida máximos, resistência física a venenos, doenças e fadiga.'
+      },
+      {
+        id: 'sabedoria',
+        name: 'Sabedoria',
+        value: 8,
+        description: 'A Sabedoria reflete a intuição, percepção e força de vontade. Ela é fundamental para clérigos e druidas para conjurar magias e é usada para testes de percepção, sobrevivência e para resistir a efeitos mentais.'
+      },
+      {
+        id: 'destreza',
+        name: 'Destreza',
+        value: 8,
+        description: 'A Destreza mede a agilidade, reflexos e coordenação. É vital para ladinos e arqueiros, e é usada para testes de acrobacia, furtividade, esquiva de ataques e para manusear armas ágeis e de longo alcance.'
+      },
+      {
+        id: 'carisma',
+        name: 'Carisma',
+        value: 8,
+        description: 'O Carisma representa a força de personalidade, capacidade de liderança e charme. É essencial para bardos, feiticeiros e paladinos para conjurar magias e é usado para testes de diplomacia, intimidação, engano e atuação.'
+      }
+    ];
+
+    const POINTS_BUDGET = 24;
+    const ATTR_MIN = 8;
+    const ATTR_MAX = 15;
+    const costTable = { 8: 0, 9: 1, 10: 2, 11: 3, 12: 4, 13: 5, 14: 7, 15: 9 };
+
+    const pointsEl = document.getElementById('points-value');
+    const modalEl  = document.getElementById('attribute-modal');
+    const modalTitleEl = document.getElementById('modal-title-text');
+    const modalBodyEl  = document.getElementById('modal-body-text');
+
+    function calculateModifier(val) {
+      const mod = Math.floor((val - 10) / 2);
+      return mod >= 0 ? `+${mod}` : String(mod);
+    }
+
+    function totalCost() {
+      return attributesData.reduce((sum, a) => sum + costTable[a.value], 0);
+    }
+
+    function render() {
+      attrContainer.innerHTML = attributesData.map(attr => `
+        <div class="attr-card" data-attr-id="${attr.id}">
+          <div class="attr-shield-outer">
+            <div class="attr-shield-inner">
+              <button class="attr-name-btn" type="button" data-attr-open>${attr.name.toUpperCase()}</button>
+              <span class="attr-value">${attr.value}</span>
+            </div>
+          </div>
+          <div class="attr-mod-group">
+            <button class="attr-step-btn" type="button" data-attr-step="-1">−</button>
+            <div class="attr-mod-circle">${calculateModifier(attr.value)}</div>
+            <button class="attr-step-btn" type="button" data-attr-step="+1">+</button>
+          </div>
+        </div>
+      `).join('');
+
+      if (pointsEl) pointsEl.textContent = String(POINTS_BUDGET - totalCost());
+    }
+
+    function changeValue(id, delta) {
+      const attr = attributesData.find(a => a.id === id);
+      if (!attr) return;
+      const newValue = attr.value + delta;
+      if (newValue < ATTR_MIN || newValue > ATTR_MAX) return;
+      const projectedCost = totalCost() - costTable[attr.value] + costTable[newValue];
+      if (projectedCost > POINTS_BUDGET) return;
+      attr.value = newValue;
+      render();
+    }
+
+    function openModal(id) {
+      const attr = attributesData.find(a => a.id === id);
+      if (!attr || !modalEl) return;
+      if (modalTitleEl) modalTitleEl.textContent = attr.name;
+      if (modalBodyEl)  modalBodyEl.textContent  = attr.description;
+      modalEl.classList.add('active');
+      document.body.classList.add('attr-modal-open');
+    }
+
+    function closeModal() {
+      if (!modalEl) return;
+      modalEl.classList.remove('active');
+      document.body.classList.remove('attr-modal-open');
+    }
+
+    attrContainer.addEventListener('click', e => {
+      const openBtn = e.target.closest('[data-attr-open]');
+      if (openBtn) {
+        const card = openBtn.closest('.attr-card');
+        if (card) openModal(card.dataset.attrId);
+        return;
+      }
+      const stepBtn = e.target.closest('[data-attr-step]');
+      if (stepBtn) {
+        const card = stepBtn.closest('.attr-card');
+        if (card) changeValue(card.dataset.attrId, parseInt(stepBtn.dataset.attrStep, 10));
+      }
+    });
+
+    if (modalEl) {
+      modalEl.addEventListener('click', e => {
+        if (e.target === modalEl || e.target.closest('[data-attr-modal-close]')) {
+          closeModal();
+        }
+      });
+      document.addEventListener('keydown', e => {
+        if (e.key === 'Escape') closeModal();
+      });
+    }
+
+    render();
+  }
 })();
