@@ -1,0 +1,50 @@
+<!DOCTYPE html>
+<html lang="pt-BR">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>Virtual Mimic — Meus Personagens</title>
+  <link rel="preconnect" href="https://fonts.googleapis.com">
+  <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+  <link href="https://fonts.googleapis.com/css2?family=IM+Fell+DW+Pica+SC&family=Jacques+Francois&family=Cinzel:wght@400;600;700&family=Crimson+Text:ital,wght@0,400;0,600;1,400&display=swap" rel="stylesheet">
+  <link rel="stylesheet" href="css/style.css">
+</head>
+<body class="app-body">
+
+  <header class="topbar">
+    <div class="topbar-inner">
+      <div class="brand-sm">
+        <span class="brand-icon" aria-hidden="true">⚔</span>
+        <span class="brand-title-sm">Virtual Mimic</span>
+      </div>
+      <div class="user-info">
+        <span class="user-greeting" id="user-greeting">Olá, Aventureiro</span>
+        <button class="btn-logout" id="logout-btn" type="button">Sair</button>
+      </div>
+    </div>
+  </header>
+
+  <main class="app-main" role="main">
+    <div class="page-header">
+      <h2 class="page-title">Personagens 1/5</h2>
+    </div>
+
+    <section class="banner-stage" aria-label="Personagens criados">
+
+      <a class="char-banner" href="ficha.html" data-class="barbaro">
+        <span class="char-banner-top"></span>
+        <button class="char-banner-delete" type="button" aria-label="Apagar personagem"
+                onclick="event.preventDefault(); event.stopPropagation();">×</button>
+        <h3 class="char-banner-name">Bárbaro</h3>
+        <img class="char-banner-icon" src="assets/barbaro-icon.svg" alt="">
+      </a>
+
+      <a class="btn-criar-personagem" href="raca.html">Criar Personagem</a>
+
+    </section>
+  </main>
+
+  <script src="js/api.js"></script>
+  <script src="js/characters.js"></script>
+</body>
+</html>

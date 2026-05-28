@@ -1,57 +1,64 @@
 <!DOCTYPE html>
-<html lang="pt-br">
+<html lang="pt-BR">
 <head>
-    <meta charset="UTF-8">
-    <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <title>Virtual Mimic - Atributos</title>
-    <link rel="stylesheet" href="atributos.css">
-    <link href="https://fonts.googleapis.com/css2?family=IM+Fell+DW+Pica+SC&display=swap" rel="stylesheet">
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>Virtual Mimic — Atributos</title>
+  <link rel="preconnect" href="https://fonts.googleapis.com">
+  <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+  <link href="https://fonts.googleapis.com/css2?family=IM+Fell+DW+Pica+SC&family=Jacques+Francois&family=Cinzel:wght@400;600;700&family=Crimson+Text:ital,wght@0,400;0,600;1,400&display=swap" rel="stylesheet">
+  <link rel="stylesheet" href="css/style.css">
 </head>
-<body>
-    <div class="bg-container"></div>
-    <div class="bg-overlay"></div>
-    
-    <div class="brand">VIRTUAL MIMIC</div>
+<body class="creation-body">
 
-    <main class="container">
-        <header>
-            <h1 class="main-title">Atributos</h1>
-            <p class="description">Aquilo que vai definir as proezas e fraquezas do seu personagem. No que ele se destaca?</p>
-        </header>
+  <a class="creation-brand" href="characters.html" aria-label="Virtual Mimic — Início">
+    Virtual <span class="brand-m">M</span>imic
+  </a>
 
-        <section class="attributes-line">
-            <div class="background-line"></div>
-            <div class="attributes-grid" id="attributes-container">
-                </div>
-        </section>
+  <main class="creation-main">
 
-        <footer class="footer-controls">
-            <div class="points-info">
-                <div class="remaining-points">
-                    <span id="points-value">24</span> PONTOS RESTANTES PARA GASTAR
-                </div>
-                <div class="limits">
-                    MINIMO: <span class="gold-text">8</span> 
-                    &nbsp;&nbsp;&nbsp; 
-                    MAXIMO: <span class="gold-text">15</span>
-                </div>
-            </div>
+    <section class="creation-hero">
+      <h1 class="creation-title">Atributos</h1>
+      <p class="creation-intro">
+        Aquilo que vai definir as proezas e fraquezas do seu personagem. No que ele se destaca?
+      </p>
 
-            <div class="action-buttons">
-                <button class="btn btn-primary">PROSSEGUIR</button>
-                <button class="btn btn-secondary">VOLTAR</button>
-            </div>
-        </footer>
-    </main>
+      <div class="creation-toolbar">
+        <a class="btn-back" href="classe.html">Voltar</a>
+        <span class="creation-hint">Clique no nome do atributo para ver a descrição.</span>
+      </div>
+    </section>
 
-    <div class="modal-overlay" id="attribute-modal">
-        <div class="modal-box">
-            <button class="close-modal" onclick="closeModal()">✕</button>
-            <h2 class="modal-title" id="modal-title-text">Atributo</h2>
-            <p class="modal-body" id="modal-body-text">Descrição.</p>
-        </div>
+    <section class="attr-stage">
+      <div class="attr-stage-bar"></div>
+      <div class="attr-row" id="attributes-container"></div>
+    </section>
+
+    <div class="attr-points">
+      <div class="attr-points-remaining">
+        <span class="attr-points-value" id="points-value">24</span>pontos restantes para gastar
+      </div>
+      <div class="attr-points-limits">
+        Mínimo: <span class="attr-gold">8</span>
+        Máximo: <span class="attr-gold">15</span>
+      </div>
     </div>
 
-    <script src="script.js"></script>
+    <div class="attr-actions">
+      <a class="btn-escolher" href="antecedente.html">Prosseguir</a>
+    </div>
+
+  </main>
+
+  <div class="attr-modal-overlay" id="attribute-modal" role="dialog" aria-modal="true">
+    <div class="attr-modal-box">
+      <button class="attr-modal-close" type="button" data-attr-modal-close aria-label="Fechar">✕</button>
+      <h2 class="attr-modal-title" id="modal-title-text">Atributo</h2>
+      <p class="attr-modal-body" id="modal-body-text">Descrição.</p>
+    </div>
+  </div>
+
+  <script src="js/api.js"></script>
+  <script src="js/creation.js"></script>
 </body>
 </html>

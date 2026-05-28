@@ -1,0 +1,87 @@
+<!DOCTYPE html>
+<html lang="pt-BR">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>Virtual Mimic — Toques Finais</title>
+  <link rel="preconnect" href="https://fonts.googleapis.com">
+  <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+  <link href="https://fonts.googleapis.com/css2?family=IM+Fell+DW+Pica+SC&family=Jacques+Francois&family=Cinzel:wght@400;600;700&family=Crimson+Text:ital,wght@0,400;0,600;1,400&display=swap" rel="stylesheet">
+  <link rel="stylesheet" href="css/style.css">
+</head>
+<body class="creation-body">
+
+  <a class="creation-brand" href="characters.html" aria-label="Virtual Mimic — Início">
+    Virtual <span class="brand-m">M</span>imic
+  </a>
+
+  <main class="creation-main">
+
+    <section class="creation-hero">
+      <h1 class="creation-title">Toques Finais</h1>
+      <p class="creation-intro">
+        Até aqui, você definiu as características mecânicas de sua ficha — mas um bom
+        personagem é mais do que apenas números. Agora, vamos trabalhar na descrição
+        do seu agente, definindo aspectos como nome, gênero e idade.
+      </p>
+    </section>
+
+    <form autocomplete="off" novalidate>
+
+      <div class="finals-basics">
+
+        <div class="finals-field">
+          <label class="finals-label" for="finals-personagem">Personagem</label>
+          <input class="finals-input" type="text" id="finals-personagem"
+                 placeholder="Nome do personagem">
+        </div>
+
+        <div class="finals-field">
+          <label class="finals-label" for="finals-jogador">Jogador</label>
+          <input class="finals-input" type="text" id="finals-jogador"
+                 placeholder="Nome do jogador">
+        </div>
+
+        <div class="finals-field finals-field--full">
+          <label class="finals-label" for="finals-aparencia">Aparência</label>
+          <textarea class="finals-textarea" id="finals-aparencia" rows="3"
+                    placeholder="Altura, Idade, Gênero, Descrição física..."></textarea>
+        </div>
+
+      </div>
+
+      <div class="finals-toolbar">
+        <a class="btn-back" href="pericias.html">Voltar</a>
+        <a class="btn-forward" href="personagens.html">Concluir</a>
+      </div>
+
+      <section class="finals-story" aria-label="Narrativa do personagem">
+
+        <div class="finals-field">
+          <label class="finals-label" for="finals-personalidade">Personalidade</label>
+          <textarea class="finals-textarea" id="finals-personalidade"
+                    placeholder="Traços de personalidade, opiniões, ideais..."></textarea>
+        </div>
+
+        <div class="finals-field">
+          <label class="finals-label" for="finals-objetivos">Objetivos</label>
+          <textarea class="finals-textarea" id="finals-objetivos"
+                    placeholder="Para o que você vive? Quais suas motivações?"></textarea>
+        </div>
+
+        <div class="finals-field">
+          <label class="finals-label" for="finals-historia">História</label>
+          <textarea class="finals-textarea" id="finals-historia"
+                    placeholder="Infância, contato com a família, eventos bons e ruins..."></textarea>
+        </div>
+
+      </section>
+
+    </form>
+
+  </main>
+
+  <script src="js/api.js"></script>
+  <script src="js/creation.js"></script>
+</body>
+</html>

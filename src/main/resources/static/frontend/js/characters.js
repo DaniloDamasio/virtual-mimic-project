@@ -15,7 +15,7 @@ document.addEventListener('DOMContentLoaded', () => {
   ['new-character-btn', 'new-character-btn-empty'].forEach(id => {
     const btn = document.getElementById(id);
     if (btn) btn.addEventListener('click', () => {
-      alert('Criação de personagem em desenvolvimento!');
+      window.location.href = 'raca.html';
     });
   });
 });
