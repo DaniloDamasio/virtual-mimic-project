@@ -1,6 +1,5 @@
 package br.com.virtualmimic.api.util;
 
-import br.com.virtualmimic.api.models.character.CharacterClass;
 import br.com.virtualmimic.api.models.character.CharacterModel;
 
 public class CharacterModifiersCalculator {
@@ -10,11 +9,7 @@ public class CharacterModifiersCalculator {
     }
 
     public static int getProficiencyBonus(int level) {
-        if (level >= 17) return 6;
-        if (level >= 13) return 5;
-        if (level >= 9)  return 4;
-        if (level >= 5)  return 3;
-        return 2;
+        return ProficiencyBonusCalculator.forLevel(level);
     }
 
     public static int savingThrow(CharacterModel character, String abilityCode) {
@@ -28,11 +23,9 @@ public class CharacterModifiersCalculator {
             default -> throw new IllegalArgumentException("Habilidade inválida: " + abilityCode);
         };
         int modifier = getAbilityModifier(abilityScore);
-
-        CharacterClass characterClass = character.getCharacterClass();
         int profBonus = getProficiencyBonus(character.getCurrentLevel());
-        boolean hasProficiency = characterClass.getSavingThrowProficiencies().contains(abilityCode);
-
+        boolean hasProficiency = character.getSavingThrowProficiencies() != null
+                && character.getSavingThrowProficiencies().contains(abilityCode);
         return modifier + (hasProficiency ? profBonus : 0);
     }
 
@@ -40,12 +33,8 @@ public class CharacterModifiersCalculator {
         int mod = getAbilityModifier(abilityScore);
         int prof = getProficiencyBonus(level);
 
-        if (expertise) {
-            return mod + (prof * 2);
-        }
-        if (proficient) {
-            return mod + prof;
-        }
+        if (expertise) return mod + (prof * 2);
+        if (proficient) return mod + prof;
         return mod;
     }
 
@@ -60,17 +49,9 @@ public class CharacterModifiersCalculator {
         return 10 + perceptionBonus;
     }
 
-    public static int spellSaveDCIfSpellCaster(CharacterModel character, String spellcastingAbilityCode) {
-        int abilityScore = switch (spellcastingAbilityCode) {
-            case "INT" -> character.getIntelligence();
-            case "WIS" -> character.getWisdom();
-            case "CHA" -> character.getCharisma();
-            default -> throw new IllegalArgumentException("Habilidade de conjuração inválida: " + spellcastingAbilityCode);
-        };
-
+    public static int spellSaveDC(int abilityScore, int level) {
         int mod = getAbilityModifier(abilityScore);
-        int prof = getProficiencyBonus(character.getCurrentLevel());
-
+        int prof = getProficiencyBonus(level);
         return 8 + prof + mod;
     }
 }

@@ -9,7 +9,7 @@
   <link href="https://fonts.googleapis.com/css2?family=IM+Fell+DW+Pica+SC&family=Jacques+Francois&family=Cinzel:wght@400;600;700&family=Crimson+Text:ital,wght@0,400;0,600;1,400&display=swap" rel="stylesheet">
   <link rel="stylesheet" href="css/style.css">
 </head>
-<body class="creation-body">
+<body class="creation-body" data-page="finals">
 
   <a class="creation-brand" href="characters.html" aria-label="Virtual Mimic — Início">
     Virtual <span class="brand-m">M</span>imic
@@ -52,7 +52,7 @@
 
       <div class="finals-toolbar">
         <a class="btn-back" href="pericias.html">Voltar</a>
-        <a class="btn-forward" href="personagens.html">Concluir</a>
+        <button class="btn-forward" type="button" data-action="finalize">Concluir</button>
       </div>
 
       <section class="finals-story" aria-label="Narrativa do personagem">
@@ -82,6 +82,8 @@
   </main>
 
   <script src="js/api.js"></script>
+  <script src="js/draft.js"></script>
+  <script src="js/dnd5eapi.js"></script>
   <script src="js/creation.js"></script>
 </body>
 </html>

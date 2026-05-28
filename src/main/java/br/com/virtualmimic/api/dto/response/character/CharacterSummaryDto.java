@@ -10,7 +10,9 @@ public class CharacterSummaryDto {
     private String characterName;
     private String characterLastName;
     private Integer currentLevel;
+    private String classSlug;
     private String className;
+    private String raceSlug;
     private String raceName;
 
     public static CharacterSummaryDto fromEntity(CharacterModel character) {
@@ -19,14 +21,10 @@ public class CharacterSummaryDto {
         dto.setCharacterName(character.getCharacterName());
         dto.setCharacterLastName(character.getCharacterLastName());
         dto.setCurrentLevel(character.getCurrentLevel());
-
-        if (character.getCharacterClass() != null) {
-            dto.setClassName(character.getCharacterClass().getClassName());
-        }
-        if (character.getCharacterRace() != null) {
-            dto.setRaceName(character.getCharacterRace().getRaceName());
-        }
-
+        dto.setClassSlug(character.getClassSlug());
+        dto.setClassName(character.getClassName());
+        dto.setRaceSlug(character.getRaceSlug());
+        dto.setRaceName(character.getRaceName());
         return dto;
     }
 }

@@ -157,7 +157,6 @@
               <li><label><input type="checkbox"> Sabedoria</label><span>+1</span></li>
               <li><label><input type="checkbox"> Carisma</label><span>+1</span></li>
             </ul>
-            <p class="saves-furia">Pontos de Fúria: 2</p>
           </div>
 
         </div>
@@ -222,15 +221,11 @@
                   <div class="attr-shield-outer">
                     <div class="attr-shield-inner">
                       <span class="attr-name-btn">CA</span>
-                      <span class="attr-value">12</span>
+                      <span class="attr-value" data-ac-shield>12</span>
                     </div>
                   </div>
                 </div>
-                <div class="armor-slots">
-                  <div class="armor-slot"></div>
-                  <div class="armor-slot"></div>
-                  <div class="armor-slot"></div>
-                </div>
+                <div class="armor-slots" data-armor-list></div>
               </div>
             </section>
 
@@ -269,21 +264,7 @@
 
             <section class="inventory-card">
               <h3>Slots de Magia</h3>
-              <div class="armor-row">
-                <div class="attr-card armor-shield">
-                  <div class="attr-shield-outer">
-                    <div class="attr-shield-inner">
-                      <span class="attr-name-btn">Nv 1</span>
-                      <span class="attr-value">4</span>
-                    </div>
-                  </div>
-                </div>
-                <div class="armor-slots">
-                  <div class="armor-slot"></div>
-                  <div class="armor-slot"></div>
-                  <div class="armor-slot"></div>
-                </div>
-              </div>
+              <div class="spell-slots-grid" data-spell-slots></div>
             </section>
 
             <section class="inventory-card">
@@ -321,21 +302,7 @@
 
             <section class="inventory-card">
               <h3>Talentos</h3>
-              <div class="armor-row">
-                <div class="attr-card armor-shield">
-                  <div class="attr-shield-outer">
-                    <div class="attr-shield-inner">
-                      <span class="attr-name-btn">TLT</span>
-                      <span class="attr-value">2</span>
-                    </div>
-                  </div>
-                </div>
-                <div class="armor-slots">
-                  <div class="armor-slot"></div>
-                  <div class="armor-slot"></div>
-                  <div class="armor-slot"></div>
-                </div>
-              </div>
+              <div class="talent-list" data-talent-list></div>
             </section>
 
             <section class="inventory-card">
@@ -401,6 +368,8 @@
   </main>
 
   <script src="js/api.js"></script>
+  <script src="js/dnd5eapi.js"></script>
+  <script src="js/dice.js"></script>
   <script src="js/ficha.js"></script>
 </body>
 </html>

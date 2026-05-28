@@ -7,6 +7,7 @@ import lombok.Getter;
 import lombok.NoArgsConstructor;
 import lombok.Setter;
 
+import java.util.ArrayList;
 import java.util.List;
 
 @Entity
@@ -28,10 +29,25 @@ public class CharacterModel {
 
     private String characterName;
     private String characterLastName;
+    private String playerName;
     private Integer characterAge;
+
     @Column(columnDefinition = "TEXT")
     private String characterHistory;
+    @Column(columnDefinition = "TEXT")
     private String characterAppearance;
+    @Column(columnDefinition = "TEXT")
+    private String personalityTraits;
+    @Column(columnDefinition = "TEXT")
+    private String ideals;
+    @Column(columnDefinition = "TEXT")
+    private String bonds;
+    @Column(columnDefinition = "TEXT")
+    private String flaws;
+    @Column(columnDefinition = "TEXT")
+    private String goals;
+
+    private String alignment;
 
     private Integer strength;
     private Integer dexterity;
@@ -41,24 +57,40 @@ public class CharacterModel {
     private Integer charisma;
 
     private Integer currentLevel;
-
     private Integer maxHealth;
     private Integer currentHealth;
 
-    @ManyToOne
-    @JoinColumn(name = "class_id")
-    private CharacterClass characterClass;
+    private Integer hitDie;
+    private Integer speed;
+    private Integer armorClass;
 
-    @ManyToOne
-    @JoinColumn(name = "race_id")
-    private CharacterRace characterRace;
+    private String raceSlug;
+    private String raceName;
 
-    @ManyToOne
-    @JoinColumn(name = "background_id")
-    private CharacterBackground characterBackground;
+    private String classSlug;
+    private String className;
 
-    @OneToMany(mappedBy = "characterModel", cascade = CascadeType.ALL, orphanRemoval = true)
-    private List<CharacterEquipment> inventory;
+    private String backgroundSlug;
+    private String backgroundName;
+
+    @ElementCollection(fetch = FetchType.EAGER)
+    @CollectionTable(name = "character_skill_proficiencies", joinColumns = @JoinColumn(name = "character_id"))
+    @Column(name = "skill")
+    private List<String> skillProficiencies = new ArrayList<>();
+
+    @ElementCollection(fetch = FetchType.EAGER)
+    @CollectionTable(name = "character_saving_throw_proficiencies", joinColumns = @JoinColumn(name = "character_id"))
+    @Column(name = "ability")
+    private List<String> savingThrowProficiencies = new ArrayList<>();
+
+    @OneToMany(mappedBy = "characterModel", cascade = CascadeType.ALL, orphanRemoval = true, fetch = FetchType.EAGER)
+    private List<CharacterEquipment> inventory = new ArrayList<>();
+
+    @OneToMany(mappedBy = "characterModel", cascade = CascadeType.ALL, orphanRemoval = true, fetch = FetchType.EAGER)
+    private List<CharacterSpell> spells = new ArrayList<>();
+
+    @OneToMany(mappedBy = "characterModel", cascade = CascadeType.ALL, orphanRemoval = true, fetch = FetchType.EAGER)
+    private List<CharacterFeat> feats = new ArrayList<>();
 
     private Integer goldPieces;
 }
