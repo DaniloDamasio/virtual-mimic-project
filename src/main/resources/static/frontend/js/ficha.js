@@ -515,6 +515,19 @@
     }
   }
 
+  function wireRollTools() {
+    const histBtn = document.getElementById('btn-roll-history');
+    if (histBtn && !histBtn.dataset.wired) {
+      histBtn.dataset.wired = '1';
+      histBtn.addEventListener('click', () => Dice.showRollHistory(characterId));
+    }
+    const customBtn = document.getElementById('btn-custom-roll');
+    if (customBtn && !customBtn.dataset.wired) {
+      customBtn.dataset.wired = '1';
+      customBtn.addEventListener('click', () => Dice.showCustomRoll(characterId));
+    }
+  }
+
   function renderAttributes() {
     ensureEditAttrButton();
     const cards = document.querySelectorAll('.ficha-grid .ficha-card-light .attr-card');
@@ -1536,6 +1549,7 @@
     renderInfo();
     wireSteppers();
     renderAttributes();
+    wireRollTools();
     renderSaves();
     renderSkills();
     renderInventory();
