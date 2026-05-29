@@ -1,6 +1,12 @@
-if (Auth.getToken()) {
-  window.location.replace('characters.html');
-}
+(async () => {
+  if (!Auth.getToken()) return;
+  try {
+    await apiFetch('/characters/my');
+    window.location.replace('characters.html');
+  } catch (_) {
+    Auth.clear();
+  }
+})();
 
 const loginForm    = document.getElementById('login-form');
 const registerForm = document.getElementById('register-form');
@@ -84,6 +90,7 @@ loginForm.addEventListener('submit', async e => {
       method: 'POST',
       body:   JSON.stringify({ email, password }),
     });
+    localStorage.removeItem('vm_character_draft');
     Auth.setSession(data);
     window.location.replace('characters.html');
   } catch (err) {
@@ -136,6 +143,7 @@ registerForm.addEventListener('submit', async e => {
       method: 'POST',
       body:   JSON.stringify({ name, email, password, confirmPassword }),
     });
+    localStorage.removeItem('vm_character_draft');
     Auth.setSession(data);
     window.location.replace('characters.html');
   } catch (err) {

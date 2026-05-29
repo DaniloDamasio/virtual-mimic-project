@@ -18,7 +18,10 @@ public class CharacterEquipment {
     @EqualsAndHashCode.Include
     private Long id;
 
+    private String slug;
     private String name;
+    @Column(columnDefinition = "TEXT")
+    private String description;
     private Double weight;
     private Integer quantity;
 
@@ -28,6 +31,7 @@ public class CharacterEquipment {
 
     private String damageDice;
     private Integer armorClassBonus;
+    private String armorCategory;
 
     @Enumerated(EnumType.STRING)
     private ItemType type;

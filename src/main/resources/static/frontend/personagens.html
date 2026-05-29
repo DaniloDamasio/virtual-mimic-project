@@ -26,25 +26,16 @@
 
   <main class="app-main" role="main">
     <div class="page-header">
-      <h2 class="page-title">Personagens 1/5</h2>
+      <h2 class="page-title" id="page-title">Personagens 0/5</h2>
     </div>
 
-    <section class="banner-stage" aria-label="Personagens criados">
-
-      <a class="char-banner" href="ficha.html" data-class="barbaro">
-        <span class="char-banner-top"></span>
-        <button class="char-banner-delete" type="button" aria-label="Apagar personagem"
-                onclick="event.preventDefault(); event.stopPropagation();">×</button>
-        <h3 class="char-banner-name">Bárbaro</h3>
-        <img class="char-banner-icon" src="assets/barbaro-icon.svg" alt="">
-      </a>
-
-      <a class="btn-criar-personagem" href="raca.html">Criar Personagem</a>
-
-    </section>
+    <section class="banner-stage" id="banner-stage" aria-label="Personagens criados"></section>
+    <div class="banner-stage-create">
+      <a class="btn-criar-personagem" href="raca.html" id="create-character-link">Criar Personagem</a>
+    </div>
   </main>
 
   <script src="js/api.js"></script>
-  <script src="js/characters.js"></script>
+  <script src="js/personagens.js"></script>
 </body>
 </html>

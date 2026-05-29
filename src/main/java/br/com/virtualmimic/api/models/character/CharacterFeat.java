@@ -11,27 +11,22 @@ import lombok.Setter;
 @Setter
 @NoArgsConstructor
 @EqualsAndHashCode(onlyExplicitlyIncluded = true)
-public class CharacterFeature {
+public class CharacterFeat {
 
     @Id
+    @GeneratedValue(strategy = GenerationType.IDENTITY)
     @EqualsAndHashCode.Include
     private Long id;
 
     private String name;
-    private Integer levelRequired;
+    private String category;
+    private String actionType;
+    private String cost;
 
     @Column(columnDefinition = "TEXT")
     private String description;
 
     @ManyToOne
-    @JoinColumn(name = "class_id")
-    private CharacterClass characterClass;
-
-    @ManyToOne
-    @JoinColumn(name = "race_id")
-    private CharacterRace race;
-
-    @ManyToOne
-    @JoinColumn(name = "background_id")
-    private CharacterBackground background;
+    @JoinColumn(name = "character_id")
+    private CharacterModel characterModel;
 }

@@ -16,6 +16,7 @@ const Auth = {
   clear() {
     localStorage.removeItem('vm_token');
     localStorage.removeItem('vm_user');
+    localStorage.removeItem('vm_character_draft');
   },
 
   requireAuth() {
@@ -46,6 +47,11 @@ async function apiFetch(endpoint, opts = {}) {
       const body = await res.json();
       message = body.message || body.error || message;
     } catch (_) {}
+    if ((res.status === 401 || res.status === 403) && !endpoint.startsWith('/auth/')) {
+      Auth.clear();
+      alert('Sua sessão expirou. Faça login novamente.');
+      window.location.replace('index.html');
+    }
     throw new Error(message);
   }
 

@@ -4,7 +4,6 @@ import br.com.virtualmimic.api.security.JwtAuthenticationFilter;
 import lombok.RequiredArgsConstructor;
 import org.springframework.context.annotation.Bean;
 import org.springframework.context.annotation.Configuration;
-import org.springframework.http.HttpMethod;
 import org.springframework.security.config.annotation.web.builders.HttpSecurity;
 import org.springframework.security.config.annotation.web.configuration.EnableWebSecurity;
 import org.springframework.security.config.http.SessionCreationPolicy;
@@ -30,7 +29,13 @@ public class SecurityConfig {
                 .authorizeHttpRequests(auth -> auth
                         .requestMatchers("/api/auth/**").permitAll()
                         .requestMatchers("/h2-console/**").permitAll()
-                        .requestMatchers(HttpMethod.GET, "/api/classes/**", "/api/races/**", "/api/backgrounds/**").permitAll()
+                        .requestMatchers(
+                                "/", "/index.html",
+                                "/frontend/**",
+                                "/css/**", "/js/**", "/assets/**",
+                                "/favicon.ico",
+                                "/error"
+                        ).permitAll()
                         .anyRequest().authenticated()
                 )
                 .addFilterBefore(jwtAuthenticationFilter, UsernamePasswordAuthenticationFilter.class);

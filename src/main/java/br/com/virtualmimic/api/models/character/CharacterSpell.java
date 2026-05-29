@@ -6,27 +6,31 @@ import lombok.Getter;
 import lombok.NoArgsConstructor;
 import lombok.Setter;
 
-import java.util.List;
-
 @Entity
 @Getter
 @Setter
 @NoArgsConstructor
 @EqualsAndHashCode(onlyExplicitlyIncluded = true)
-public class CharacterBackground {
+public class CharacterSpell {
 
     @Id
+    @GeneratedValue(strategy = GenerationType.IDENTITY)
     @EqualsAndHashCode.Include
     private Long id;
 
+    private String slug;
     private String name;
+    private Integer level;
+    private String school;
+    private String castingTime;
+    private String range;
+    private String components;
+    private String duration;
 
     @Column(columnDefinition = "TEXT")
-    private String backgroundFeatureDescription;
+    private String description;
 
-    @ElementCollection
-    private List<String> grantedSkills;
-
-    @OneToMany(mappedBy = "background", cascade = CascadeType.ALL)
-    private List<CharacterFeature> backgroundFeatures;
+    @ManyToOne
+    @JoinColumn(name = "character_id")
+    private CharacterModel characterModel;
 }
